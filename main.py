@@ -185,11 +185,15 @@ async def main():
             continue
 
         name = bms.name
-        assert name not in names, "duplicate name %s" % name
+        #extract last character from name as this is the bank
+        bank = name[[len(name)-1:len(name)]
 
-        bms_list.append(bms)
-        names.add(name)
-        dev_args[name] = dev
+        if bank == "1":
+            assert name not in names, "duplicate name %s" % name
+    
+            bms_list.append(bms)
+            names.add(name)
+            dev_args[name] = dev
 
     bms_by_name: dict[str, bmslib.bt.BtBms] = {bms.address: bms for bms in bms_list if not bms.is_virtual}
     bms_by_name.update({bms.name: bms for bms in bms_list})
