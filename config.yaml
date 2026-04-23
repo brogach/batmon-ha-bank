@@ -1,6 +1,6 @@
 name: "Batmonmb"
 description: "Monitor various BMS over bluetooth"
-url: https://github.com/fl4p/batmon-ha-bank
+url: https://github.com/brogach/batmon-ha-bank
 version: "1.92"
 slug: "batmonmb"
 init: false
